@@ -50,37 +50,32 @@ class ViewController: NSViewController {
 		//so that the program doesn't have to be reloaded if a new font is added
 		let allFonts : [String] = NSFontManager.sharedFontManager().availableFonts as [String];
 		let allFontFamilies : [String] = NSFontManager.sharedFontManager().availableFontFamilies as [String];
-		
 		let inputText : String = inputTextView.string!;
 		let pixelSize : CGFloat = CGFloat((fontSizeTextView.stringValue as NSString).doubleValue);
 		let cleanedPixelSize : CGFloat = pixelSize >= 0 ? pixelSize : CGFloat(DEFAULT_PIXEL_VALUE);
-		let fonts : [String] = fontSelectionPopUp.indexOfSelectedItem == 0 ? allFontFamilies : allFonts;
+		var fonts : [String] = fontSelectionPopUp.indexOfSelectedItem == 0 ? allFontFamilies : allFonts;
 		outputTextView.string = "";
 		var fontNum : Int = 0;
 		var totalText : NSMutableAttributedString = NSMutableAttributedString();
 		let filterString : String = filterTextField.stringValue;
 		
-		//get the attributedString based on matches if filter textField is not blank
-		totalText.beginEditing();
-		if(filterString.rangeOfString("^$|^[\\s\\t\\n]*$", options: .RegularExpressionSearch) != nil){
-			for font in fonts{
-				totalText.appendAttributedString(attributeStringFromString(inputText, fontName: font, fontSize: cleanedPixelSize));
-				fontNum++;
-			}
-		}
-		else{
+		//check to see if search field is blank before filtering results needlessly
+		if(filterString.rangeOfString("^$|^[\\s\\t\\n]*$", options: .RegularExpressionSearch) == nil){
 			let matcher  = AGEDRegExMatcher(regExPattern: filterString);
-			for font in fonts{
-				if(matcher.isStringMatchCaseInsensitive(font)) {
-					totalText.appendAttributedString(attributeStringFromString(inputText, fontName: font, fontSize: cleanedPixelSize));
-					fontNum++;
-				}
-			}
+			fonts = fonts.filter({matcher.isStringMatchCaseInsensitive($0)});
+		}
+		
+		totalText.beginEditing();
+		for font in fonts{
+			totalText.appendAttributedString(attributeStringFromString(inputText, fontName: font, fontSize: cleanedPixelSize));
+			fontNum++;
 		}
 		totalText.endEditing();
 		
 		//update ui based on findings
+		outputTextView.textStorage?.beginEditing();
 		outputTextView.textStorage!.setAttributedString(totalText);
+		outputTextView.textStorage?.endEditing();
 		fontCountLabel.stringValue = "\(fontNum) fonts found";
 		fontSizeTextView.stringValue = "\(cleanedPixelSize)";
 	}
