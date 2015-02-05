@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 class AGEDRegExMatcher : NSObject{
-	
+	//empty string for regExPattern crashes
 	private var regExPattern : String = "^$";
 	private var regExMatcher : NSRegularExpression = NSRegularExpression(pattern: "^$", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)!;
 	
