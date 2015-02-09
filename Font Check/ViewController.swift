@@ -10,20 +10,23 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+	@IBOutlet weak var fontSizeComboBox: NSComboBox!
 	@IBOutlet weak var searchField: NSSearchField!
 	@IBOutlet weak var fontCountLabel: NSTextField!
-//	@IBOutlet weak var filterTextField: NSTextField!
 	@IBOutlet weak var fontSelectionPopUp: NSPopUpButton!
 	@IBOutlet var outputTextView: NSTextView!
 	@IBOutlet var inputTextView: NSTextView!
-	@IBOutlet weak var fontSizeTextView: NSTextField!
 	
 	let DEFAULT_PIXEL_VALUE : Double = 16;
+	let DEFAULT_TYPE_SCALE_VALUES : [Double] = [9, 12, 16, 21.328, 28.43, 37.897, 50.517, 67.339, 89.763];
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		// Do any additional setup after loading the view.
+		fontSizeComboBox.stringValue = "\(DEFAULT_PIXEL_VALUE)";
+		fontSizeComboBox.addItemsWithObjectValues(DEFAULT_TYPE_SCALE_VALUES);
+		fontSizeComboBox.numberOfVisibleItems = 10;
 		outputTextView.richText = true;
 		fontCountLabel.stringValue = "";
 	}
@@ -40,10 +43,10 @@ class ViewController: NSViewController {
 	}
 	
 	@IBAction func fontSizeStepperAction(sender: AnyObject) {
-		let pixelSize : Double = (fontSizeTextView.stringValue as NSString).doubleValue;
+		let pixelSize : Double = (fontSizeComboBox.stringValue as NSString).doubleValue;
 		var newPixelSize : Double = sender.integerValue > 0 ? pixelSize + 1 : pixelSize - 1;
 		newPixelSize = newPixelSize <= 0 ? 1 : newPixelSize;
-		fontSizeTextView.stringValue = "\(newPixelSize)";
+		fontSizeComboBox.stringValue = "\(newPixelSize)";
 		
 	}
 	@IBAction func displayFonts(sender: AnyObject) {
@@ -52,7 +55,7 @@ class ViewController: NSViewController {
 		let allFonts : [String] = NSFontManager.sharedFontManager().availableFonts as [String];
 		let allFontFamilies : [String] = NSFontManager.sharedFontManager().availableFontFamilies as [String];
 		let inputText : String = inputTextView.string!;
-		let pixelSize : CGFloat = CGFloat((fontSizeTextView.stringValue as NSString).doubleValue);
+		let pixelSize : CGFloat = CGFloat((fontSizeComboBox.stringValue as NSString).doubleValue);
 		let cleanedPixelSize : CGFloat = pixelSize >= 0 ? pixelSize : CGFloat(DEFAULT_PIXEL_VALUE);
 		var fonts : [String] = fontSelectionPopUp.indexOfSelectedItem == 0 ? allFontFamilies : allFonts;
 		outputTextView.string = "";
@@ -78,7 +81,7 @@ class ViewController: NSViewController {
 		outputTextView.textStorage!.setAttributedString(totalText);
 		outputTextView.textStorage?.endEditing();
 		fontCountLabel.stringValue = "\(fontNum) fonts found";
-		fontSizeTextView.stringValue = "\(cleanedPixelSize)";
+		fontSizeComboBox.stringValue = "\(cleanedPixelSize)";
 	}
 
 }
