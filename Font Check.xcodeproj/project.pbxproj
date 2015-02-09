@@ -401,6 +401,7 @@
 				64EB0DCF1A833BAE009DEB10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		64EB0DD01A833BAE009DEB10 /* Build configuration list for PBXNativeTarget "Font CheckTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +410,7 @@
 				64EB0DD21A833BAE009DEB10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
