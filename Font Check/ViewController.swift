@@ -10,8 +10,9 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+	@IBOutlet weak var searchField: NSSearchField!
 	@IBOutlet weak var fontCountLabel: NSTextField!
-	@IBOutlet weak var filterTextField: NSTextField!
+//	@IBOutlet weak var filterTextField: NSTextField!
 	@IBOutlet weak var fontSelectionPopUp: NSPopUpButton!
 	@IBOutlet var outputTextView: NSTextView!
 	@IBOutlet var inputTextView: NSTextView!
@@ -57,7 +58,7 @@ class ViewController: NSViewController {
 		outputTextView.string = "";
 		var fontNum : Int = 0;
 		var totalText : NSMutableAttributedString = NSMutableAttributedString();
-		let filterString : String = filterTextField.stringValue;
+		let filterString : String = searchField.stringValue;
 		
 		//check to see if search field is blank before filtering results needlessly
 		if(filterString.rangeOfString("^$|^[\\s\\t\\n]*$", options: .RegularExpressionSearch) == nil){

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
@@ -654,7 +654,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="196" y="240" width="850" height="616"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="815" height="319"/>
+                        <value key="minSize" type="size" width="820" height="319"/>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -778,22 +778,6 @@
                                     </connections>
                                 </buttonCell>
                             </button>
-                            <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rr6-jz-b6U">
-                                <rect key="frame" x="514" y="365" width="173" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="i2x-Sq-llT">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1y-CR-vFs">
-                                <rect key="frame" x="461" y="367" width="38" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filter" id="8Vv-in-yEz">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HHc-5D-y7w">
                                 <rect key="frame" x="295" y="0.0" width="234" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="WQS-sh-Jpg">
@@ -815,6 +799,14 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wp3-aD-RV0">
+                                <rect key="frame" x="505" y="365" width="190" height="22"/>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="V15-Ki-tdn">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                            </searchField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="TPY-Ly-RWI" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="219" id="0t2-Ig-u5C"/>
@@ -823,10 +815,11 @@
                             <constraint firstItem="Vh1-YM-Y5E" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="26" id="8br-mM-nWM"/>
                             <constraint firstItem="UeZ-cA-U0Q" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="189" id="9Jy-ht-rCq"/>
                             <constraint firstAttribute="bottom" secondItem="Ndi-Jw-3vD" secondAttribute="bottom" constant="20" id="AY7-2n-MEW"/>
-                            <constraint firstItem="Rr6-jz-b6U" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="514" id="Coa-fi-7Ya"/>
                             <constraint firstItem="LcQ-b5-xg2" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="GAU-OG-l3v"/>
+                            <constraint firstAttribute="trailing" secondItem="Wp3-aD-RV0" secondAttribute="trailing" constant="130" id="LAh-nv-zxo"/>
                             <constraint firstItem="Ndi-Jw-3vD" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="127" id="LaC-Gn-XJf"/>
                             <constraint firstAttribute="trailing" secondItem="Ndi-Jw-3vD" secondAttribute="trailing" constant="20" id="Qyp-8o-9ra"/>
+                            <constraint firstItem="Wp3-aD-RV0" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="505" id="RcS-Pb-6ID"/>
                             <constraint firstAttribute="trailing" secondItem="HHc-5D-y7w" secondAttribute="trailing" constant="298" id="fU4-Q2-CYF"/>
                             <constraint firstItem="dOw-Nb-5rb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="112" id="fgv-ob-1Kt"/>
                             <constraint firstItem="HHc-5D-y7w" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="297" id="hE3-Af-lvy"/>
@@ -834,16 +827,15 @@
                             <constraint firstAttribute="trailing" secondItem="Vh1-YM-Y5E" secondAttribute="trailing" constant="20" id="tO5-jr-oXa"/>
                             <constraint firstAttribute="trailing" secondItem="uao-M3-w8q" secondAttribute="trailing" constant="20" id="xca-cx-lJQ"/>
                             <constraint firstItem="uao-M3-w8q" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="114" id="zJZ-sP-8AT"/>
-                            <constraint firstAttribute="trailing" secondItem="Rr6-jz-b6U" secondAttribute="trailing" constant="138" id="zaD-og-lJX"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="filterTextField" destination="Rr6-jz-b6U" id="ivD-6c-dOt"/>
                         <outlet property="fontCountLabel" destination="HHc-5D-y7w" id="7Ds-6R-pai"/>
                         <outlet property="fontSelectionPopUp" destination="TPY-Ly-RWI" id="XMk-Su-BSF"/>
                         <outlet property="fontSizeTextView" destination="dOw-Nb-5rb" id="v3M-O0-Fk0"/>
                         <outlet property="inputTextView" destination="bnP-zu-u2t" id="sgc-Uq-ZGo"/>
                         <outlet property="outputTextView" destination="pD7-b3-FZ1" id="4JI-L4-XFh"/>
+                        <outlet property="searchField" destination="Wp3-aD-RV0" id="zxg-Bq-Cmc"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
