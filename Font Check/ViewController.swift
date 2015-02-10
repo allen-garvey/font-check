@@ -18,14 +18,14 @@ class ViewController: NSViewController {
 	@IBOutlet var inputTextView: NSTextView!
 	
 	let DEFAULT_PIXEL_VALUE : Double = 16;
-	let DEFAULT_TYPE_SCALE_VALUES : [Double] = [9, 12, 16, 21.328, 28.43, 37.897, 50.517, 67.339, 89.763];
+	let typescaler : Typescaler = Typescaler();
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		// Do any additional setup after loading the view.
 		fontSizeComboBox.stringValue = "\(DEFAULT_PIXEL_VALUE)";
-		fontSizeComboBox.addItemsWithObjectValues(DEFAULT_TYPE_SCALE_VALUES);
+		fontSizeComboBox.addItemsWithObjectValues(typescaler.calculatedScaleArray(DEFAULT_PIXEL_VALUE, typeRatioName: "perfect fourth", rangeStart: -2, rangeEnd: 6).map({round($0 * 1000) / 1000}));
 		fontSizeComboBox.numberOfVisibleItems = 10;
 		outputTextView.richText = true;
 		fontCountLabel.stringValue = "";
@@ -84,5 +84,9 @@ class ViewController: NSViewController {
 		fontSizeComboBox.stringValue = "\(cleanedPixelSize)";
 	}
 
+	@IBAction func searchAction(sender: AnyObject) {
+		self.displayFonts(sender);
+	}
+	
 }
 
