@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		647D5CB71A89B08900598301 /* Typescaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D5CB61A89B08900598301 /* Typescaler.swift */; };
 		64EB0DB71A833BAD009DEB10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EB0DB61A833BAD009DEB10 /* AppDelegate.swift */; };
 		64EB0DB91A833BAD009DEB10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EB0DB81A833BAD009DEB10 /* ViewController.swift */; };
 		64EB0DBB1A833BAD009DEB10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64EB0DBA1A833BAD009DEB10 /* Images.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		647D5CB61A89B08900598301 /* Typescaler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typescaler.swift; sourceTree = "<group>"; };
 		64EB0DB11A833BAD009DEB10 /* Font Check.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Font Check.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64EB0DB51A833BAD009DEB10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64EB0DB61A833BAD009DEB10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				64EB0DB61A833BAD009DEB10 /* AppDelegate.swift */,
+				647D5CB61A89B08900598301 /* Typescaler.swift */,
 				64EB0DD31A833BE9009DEB10 /* AGEDRegExMatcher.swift */,
 				64EB0DB81A833BAD009DEB10 /* ViewController.swift */,
 				64EB0DBA1A833BAD009DEB10 /* Images.xcassets */,
@@ -214,6 +217,7 @@
 				64EB0DB91A833BAD009DEB10 /* ViewController.swift in Sources */,
 				64EB0DD41A833BE9009DEB10 /* AGEDRegExMatcher.swift in Sources */,
 				64EB0DB71A833BAD009DEB10 /* AppDelegate.swift in Sources */,
+				647D5CB71A89B08900598301 /* Typescaler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
