@@ -49,6 +49,7 @@ class ViewController: NSViewController {
 		fontSizeComboBox.stringValue = "\(newPixelSize)";
 		
 	}
+
 	@IBAction func displayFonts(sender: AnyObject) {
 		//initialize and setup various variables
 		//so that the program doesn't have to be reloaded if a new font is added
@@ -76,14 +77,15 @@ class ViewController: NSViewController {
 		}
 		totalText.endEditing();
 		
-		//update ui based on findings
-		outputTextView.textStorage?.beginEditing();
-		outputTextView.textStorage!.setAttributedString(totalText);
-		outputTextView.textStorage?.endEditing();
+		//update ui to show results
+		dispatch_async(dispatch_get_main_queue()) {
+			let outputTextView = self.outputTextView; //swift shows errors if we don't do this
+			outputTextView.layoutManager?.replaceTextStorage(NSTextStorage(attributedString: totalText));
+		};
 		fontCountLabel.stringValue = "\(fontNum) fonts found";
 		fontSizeComboBox.stringValue = "\(cleanedPixelSize)";
+		
 	}
-
 	@IBAction func searchAction(sender: AnyObject) {
 		self.displayFonts(sender);
 	}

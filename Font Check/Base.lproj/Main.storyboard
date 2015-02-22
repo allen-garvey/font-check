@@ -765,7 +765,7 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <connections>
-                                        <action selector="displayFonts:" target="XfG-lQ-9wD" id="Ccl-MW-Yah"/>
+                                        <action selector="displayFonts:" target="XfG-lQ-9wD" id="g6G-VA-CbK"/>
                                     </connections>
                                 </buttonCell>
                             </button>
