@@ -789,6 +789,9 @@
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="displayFonts:" target="XfG-lQ-9wD" id="8IF-VB-wpJ"/>
+                                </connections>
                             </popUpButton>
                             <searchField wantsLayer="YES" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wp3-aD-RV0">
                                 <rect key="frame" x="505" y="365" width="190" height="22"/>
@@ -808,6 +811,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
+                                <connections>
+                                    <action selector="displayFonts:" target="XfG-lQ-9wD" id="WWx-qa-Yiy"/>
+                                </connections>
                             </comboBox>
                         </subviews>
                         <constraints>
