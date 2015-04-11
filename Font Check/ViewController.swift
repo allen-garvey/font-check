@@ -34,30 +34,28 @@ class ViewController: NSViewController {
 	}
 	
 	override func viewDidAppear() {
+		super.viewDidAppear();
+		makeInputTextViewFirstResponder();
+	}
+
+	override var representedObject: AnyObject? {
+		didSet {
+		// Update the view, if already loaded.
+			
+		}
+	}
+	
+	func makeInputTextViewFirstResponder(){
 		let window : NSWindow = inputTextView.window!;
 		window.makeFirstResponder(window);
 		window.makeKeyWindow();
 		window.makeFirstResponder(inputTextView);
 		inputTextView.selectAll(inputTextView);
 	}
-
-	override var representedObject: AnyObject? {
-		didSet {
-		// Update the view, if already loaded.
-		}
-	}
 	
 	func attributeStringFromString(input: String, fontName: String, fontSize: CGFloat)->NSAttributedString{
 		let testString = "\(input)    -(\(fontName))\n\n"
 		return NSAttributedString(string: testString, attributes: [NSFontAttributeName : NSFont(name: fontName, size: fontSize)!]  as [NSObject : AnyObject]);
-	}
-	
-	@IBAction func fontSizeStepperAction(sender: AnyObject) {
-		let pixelSize : Double = (fontSizeComboBox.stringValue as NSString).doubleValue;
-		var newPixelSize : Double = sender.integerValue > 0 ? pixelSize + 1 : pixelSize - 1;
-		newPixelSize = newPixelSize <= 0 ? 1 : newPixelSize;
-		fontSizeComboBox.stringValue = "\(newPixelSize)";
-		
 	}
 
 	@IBAction func displayFonts(sender: AnyObject) {
