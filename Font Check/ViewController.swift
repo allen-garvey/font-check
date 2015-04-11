@@ -18,6 +18,7 @@ class ViewController: NSViewController {
 	@IBOutlet var inputTextView: NSTextView!
 	
 	let DEFAULT_PIXEL_VALUE : Double = 32;
+	var fontSizeComboBoxPrevValue : Double = 0;
 	let typeScaleStartingValue : Double = 16;
 	let typescaler : Typescaler = Typescaler();
 	
@@ -26,6 +27,7 @@ class ViewController: NSViewController {
 		
 		// Do any additional setup after loading the view.
 		fontSizeComboBox.stringValue = "\(DEFAULT_PIXEL_VALUE)";
+		fontSizeComboBoxPrevValue = DEFAULT_PIXEL_VALUE;
 		fontSizeComboBox.addItemsWithObjectValues(typescaler.calculatedScaleArray(typeScaleStartingValue, typeRatioName: "perfect fourth", rangeStart: -2, rangeEnd: 7).map({round($0)}));
 		fontSizeComboBox.numberOfVisibleItems = 10;
 		outputTextView.richText = true;
@@ -98,5 +100,13 @@ class ViewController: NSViewController {
 		self.displayFonts(sender);
 	}
 	
+	@IBAction func comboBoxEditAction(sender: AnyObject) {
+		//so that the font size combo box won't needlessly update the font display if the font size is unchanged
+		let fontSizeComboBoxDoubleValue : Double = (fontSizeComboBox.stringValue as NSString).doubleValue;
+		if(fontSizeComboBoxDoubleValue != fontSizeComboBoxPrevValue){
+			fontSizeComboBoxPrevValue = fontSizeComboBoxDoubleValue;
+			searchAction(sender);
+		}
+	}
 }
 

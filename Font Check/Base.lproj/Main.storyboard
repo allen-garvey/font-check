@@ -769,7 +769,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
                                 <connections>
-                                    <action selector="displayFonts:" target="XfG-lQ-9wD" id="WWx-qa-Yiy"/>
+                                    <action selector="comboBoxEditAction:" target="XfG-lQ-9wD" id="RI3-2V-GBU"/>
                                 </connections>
                             </comboBox>
                             <scrollView ambiguous="YES" misplaced="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uao-M3-w8q">
