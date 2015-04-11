@@ -39,7 +39,7 @@ class ViewController: NSViewController {
 	
 	func attributeStringFromString(input: String, fontName: String, fontSize: CGFloat)->NSAttributedString{
 		let testString = "\(input)    -(\(fontName))\n\n"
-		return NSAttributedString(string: testString, attributes: ([NSFontAttributeName : NSFont(name: fontName, size: fontSize)!] as NSDictionary));
+		return NSAttributedString(string: testString, attributes: [NSFontAttributeName : NSFont(name: fontName, size: fontSize)!]  as [NSObject : AnyObject]);
 	}
 	
 	@IBAction func fontSizeStepperAction(sender: AnyObject) {
@@ -53,8 +53,8 @@ class ViewController: NSViewController {
 	@IBAction func displayFonts(sender: AnyObject) {
 		//initialize and setup various variables
 		//so that the program doesn't have to be reloaded if a new font is added
-		let allFonts : [String] = NSFontManager.sharedFontManager().availableFonts as [String];
-		let allFontFamilies : [String] = NSFontManager.sharedFontManager().availableFontFamilies as [String];
+		let allFonts : [String] = NSFontManager.sharedFontManager().availableFonts as! [String];
+		let allFontFamilies : [String] = NSFontManager.sharedFontManager().availableFontFamilies as! [String];
 		let inputText : String = inputTextView.string!;
 		let pixelSize : CGFloat = CGFloat((fontSizeComboBox.stringValue as NSString).doubleValue);
 		let cleanedPixelSize : CGFloat = pixelSize >= 0 ? pixelSize : CGFloat(DEFAULT_PIXEL_VALUE);

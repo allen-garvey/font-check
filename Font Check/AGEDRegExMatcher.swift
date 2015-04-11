@@ -25,7 +25,7 @@ class AGEDRegExMatcher : NSObject{
 	}
 	
 	func isStringMatchCaseInsensitive(string : String)->Bool{
-		if((self.regExMatcher.matchesInString(string, options: nil, range: NSMakeRange(0, countElements(string))) as NSArray).count > 0){
+		if((self.regExMatcher.matchesInString(string, options: nil, range: NSMakeRange(0, count(string))) as NSArray).count > 0){
 			return true;
 		}
 		return false;
