@@ -17,7 +17,8 @@ class ViewController: NSViewController {
 	@IBOutlet var outputTextView: NSTextView!
 	@IBOutlet var inputTextView: NSTextView!
 	
-	let DEFAULT_PIXEL_VALUE : Double = 16;
+	let DEFAULT_PIXEL_VALUE : Double = 32;
+	let typeScaleStartingValue : Double = 16;
 	let typescaler : Typescaler = Typescaler();
 	
 	override func viewDidLoad() {
@@ -25,10 +26,19 @@ class ViewController: NSViewController {
 		
 		// Do any additional setup after loading the view.
 		fontSizeComboBox.stringValue = "\(DEFAULT_PIXEL_VALUE)";
-		fontSizeComboBox.addItemsWithObjectValues(typescaler.calculatedScaleArray(DEFAULT_PIXEL_VALUE, typeRatioName: "perfect fourth", rangeStart: -2, rangeEnd: 6).map({round($0 * 1000) / 1000}));
+		fontSizeComboBox.addItemsWithObjectValues(typescaler.calculatedScaleArray(typeScaleStartingValue, typeRatioName: "perfect fourth", rangeStart: -2, rangeEnd: 7).map({round($0)}));
 		fontSizeComboBox.numberOfVisibleItems = 10;
 		outputTextView.richText = true;
 		fontCountLabel.stringValue = "";
+		
+	}
+	
+	override func viewDidAppear() {
+		let window : NSWindow = inputTextView.window!;
+		window.makeFirstResponder(window);
+		window.makeKeyWindow();
+		window.makeFirstResponder(inputTextView);
+		inputTextView.selectAll(inputTextView);
 	}
 
 	override var representedObject: AnyObject? {
