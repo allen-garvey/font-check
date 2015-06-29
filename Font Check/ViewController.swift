@@ -21,6 +21,7 @@ class ViewController: NSViewController {
 	var fontSizeComboBoxPrevValue : Double = 0;
 	let typeScaleStartingValue : Double = 16;
 	let typescaler : Typescaler = Typescaler();
+	var searchMatcher : AGEDRegExMatcher = AGEDRegExMatcher(regExPattern: "");
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -76,8 +77,8 @@ class ViewController: NSViewController {
 		
 		//check to see if search field is blank before filtering results needlessly
 		if(filterString.rangeOfString("^$|^[\\s\\t\\n]*$", options: .RegularExpressionSearch) == nil){
-			let matcher  = AGEDRegExMatcher(regExPattern: filterString);
-			fonts = fonts.filter({matcher.isStringMatchCaseInsensitive($0)});
+			self.searchMatcher.setRegExPattern(filterString);
+			fonts = fonts.filter({self.searchMatcher.isStringMatchCaseInsensitive($0)});
 		}
 		
 		totalText.beginEditing();
