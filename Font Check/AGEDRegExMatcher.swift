@@ -20,7 +20,7 @@ class AGEDRegExMatcher : NSObject{
 	}
 	
 	func isStringMatchCaseInsensitive(string : String, regExPattern: String)->Bool{
-		self.regExPattern = regExPattern;
+		self.setRegExPattern(regExPattern);
 		return self.isStringMatchCaseInsensitive(string);
 	}
 	
@@ -32,8 +32,13 @@ class AGEDRegExMatcher : NSObject{
 	}
 	
 	func setRegExPattern(regExPattern: String){
-		self.regExPattern = regExPattern;
-		self.regExMatcher = NSRegularExpression(pattern: self.regExPattern, options: NSRegularExpressionOptions.CaseInsensitive, error: nil)!;
+		var regexError : NSError? = nil;
+		let newMatcher : NSRegularExpression? = NSRegularExpression(pattern: regExPattern, options: NSRegularExpressionOptions.CaseInsensitive, error: &regexError);
+		if(regexError == nil){
+			self.regExPattern = regExPattern;
+			self.regExMatcher = newMatcher!;
+		}
+		
 	}
 	
 
